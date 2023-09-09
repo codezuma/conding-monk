@@ -1,16 +1,18 @@
 ---
+import PageLayout from '../layout/PageLayout.astro'
+import HeroSection from '../components/sections/hero-section.astro';
+import ClientSection from '../components/sections/client-section.astro';
+import FeatureSection from '../components/sections/feature-section.astro';
+import ReviewSection from '../components/sections/review-section.astro';
+import CapabilitiesSection from '../components/sections/capabilities-section.astro';
+import ContactSection from '../components/sections/contact-section.astro';
 
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<PageLayout title="Home Page">
+   <HeroSection/>
+   <ClientSection/>
+   <FeatureSection/>
+   <ReviewSection/>
+   <CapabilitiesSection/>
+   <ContactSection/>
+</PageLayout>

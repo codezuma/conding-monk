@@ -1,0 +1,53 @@
+---
+import Logo from "../ui/logo.astro";
+const links = ["Home", "Resources", "Pricing"];
+---
+
+<astro:head>
+    <style>
+        .bg-scroll {
+            background-color: white;
+            /* Add any other styling you need for the scrolled state */
+        }
+    </style>
+</astro:head>
+
+<script>
+
+
+    function handleScroll() {
+        const navbar = document.querySelector("#primary-navbar");
+        if (window.scrollY > 0) {
+            navbar?.classList.add('bg-white')
+        } else {
+            navbar?.classList.remove('bg-white')
+        }
+    }
+    window.onscroll = ()=>{
+        handleScroll();
+    };
+
+
+    window.removeEventListener("scroll", handleScroll);
+  
+</script>
+
+{/*bg-white */}
+<nav id="primary-navbar"
+    class="container-main h-20 fixed top-0 items-center flex z-50 justify-start transition-all"
+>
+    <div class="mr-12"><Logo /></div>
+    <div class="flex gap-8">
+        {
+            links.map((link) => (
+                <a class="font-semibold hover:text-gray-800 transition-all text-base text-gray-600 cursor-pointer">
+                    {link}
+                </a>
+            ))
+        }
+    </div>
+    <div class="ml-auto flex gap-4">
+        <button class="button-secondary"> Log in</button>
+        <button class="button-primary"> Sign up</button>
+    </div>
+</nav>

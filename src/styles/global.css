@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base{
+    html{
+        font-family: 'Inter', sans-serif;
+    }
+    a{
+@apply hover:underline cursor-pointer    }
+    :root {
+        --primary: #010101;
+        --primary-foreground: 210 40% 98%;
+    }
+}
+
+/* *{
+    border:1px red solid;
+} */
+@layer components {
+    .container-main {
+        @apply xl:px-20 w-full md:px-12 px-6 max-w-[1920px];
+    }
+    .button {
+        @apply inline-flex items-center justify-center rounded-md text-sm font-medium ;
+    }
+    .button-primary{
+        @apply button bg-primary text-primary-foreground text-white px-3 py-2 tracking-wider hover:bg-primary/90;
+    }
+    .button-secondary{
+        @apply button bg-white text-primary-foreground  px-3 py-2 tracking-wider hover:bg-gray-100;
+    }
+    .button-outline{
+        @apply button bg-white border border-gray-200 text-primary-foreground  px-3 py-2 tracking-wider hover:bg-gray-100;
+    }
+    .button-large{
+        @apply px-6 py-3 text-lg;
+    }
+}
