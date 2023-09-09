@@ -1,7 +1,14 @@
 ---
-import PageLayout from '../layout/PageLayout.astro'
+import PageLayout from "../layout/PageLayout.astro";
+import PricingSection from "../components/sections/pricing-page/pricing-section.astro";
+import FaqSection from "../components/sections/faq-section.astro";
+import GetInTouchSection from "../components/sections/get-in-touch-section.astro";
+import FooterLarge from "../components/sections/footer-large.astro";
 ---
 
 <PageLayout title="Pricing Page">
-
+    <PricingSection />
+    <FaqSection/>
+    <GetInTouchSection/>
+    <FooterLarge/>
 </PageLayout>
