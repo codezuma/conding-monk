@@ -1,0 +1,18 @@
+---
+import HeroSection from "../components/sections/resource/hero-section.astro";
+import PageLayout from "../layout/PageLayout.astro";
+import BlogCard from '../components/shared/blog/blog-card.astro'
+import BlogSection from "../components/sections/blog/blog-section.astro";
+import NewsletterSection from "../components/sections/newsletter-section.astro";
+import FooterLarge from "../components/sections/footer-large.astro";
+
+---
+<PageLayout>
+    <HeroSection/>
+    <div class="container-main -mt-20">
+        <BlogCard className="w-full"/>
+    </div>
+    <BlogSection/>
+    <NewsletterSection/>
+    <FooterLarge/>
+</PageLayout>

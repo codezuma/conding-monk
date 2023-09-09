@@ -1,8 +1,10 @@
 ---
 import Logo from "../ui/logo.astro";
+const links = ["Terms", "Privacy", "Cookies"];
+
 ---
 <section
-class=" container-main max-w-7xl mx-auto gap-12 relative flex-col md:flex-row z-50 md:-bottom-20 -bottom-32 justify-between flex bg-gray-50 shadow rounded-2xl md:p-16 p-8"
+class=" container-main max-w-7xl mx-auto gap-12 relative flex-col md:flex-row z-20 md:-bottom-20 -bottom-32 justify-between flex bg-gray-50 shadow rounded-2xl md:p-16 p-8"
 >
 <main>
     <h2 class="text-3xl font-semibold mb-2">
@@ -78,4 +80,15 @@ class=" container-main max-w-7xl mx-auto gap-12 relative flex-col md:flex-row z-
             </div>
         </div>
     </main>
+
+
+<footer class="container-main mt-12 ">
+    <div class="md:px-8 flex border-t-2 md:flex-row gap-4 flex-col-reverse  border-gray-800 py-8">
+        <p class="flex-1 text-white">© 2077 Untitled UI. All rights reserved.</p>
+        <div class="flex gap-2">
+            {links.map(link=><a class="text-gray-100 hover:text-white font-medium">{link}</a>)}
+        </div>
+    </div>
+</footer>
+
 </footer>

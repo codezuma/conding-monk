@@ -1,8 +1,7 @@
 ---
 import { ViewTransitions } from "astro:transitions";
-import Footer from "../components/sections/footer.astro";
 import Navbar from "../components/shared/navbar.astro";
-import "../styles/global.css"
+import "../styles/global.css";
 const { title } = Astro.props;
 ---
 
@@ -14,10 +13,9 @@ const { title } = Astro.props;
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
     </head>
-    <body class='flex justify-center flex-col items-center'>
-        <ViewTransitions transition:animate={'initial'}/>
+    <body class="flex justify-center flex-col items-center">
+        <ViewTransitions transition:animate={"initial"} />
         <Navbar />
-    <slot />
-    <Footer/>
+        <slot />
     </body>
 </html>
