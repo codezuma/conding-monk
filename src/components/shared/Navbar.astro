@@ -1,25 +1,54 @@
 ---
-import { Astronav } from "astro-navbar";
 import Logo from "../ui/logo.astro";
-const links = ["Home", "Resources", "Pricing"];
+type Props = {
+    dark?:boolean;
+}
+type NavLink = {
+    title:string,
+    path:string
+}
+const navlinks:NavLink[] = [
+  {
+    title: "Home",
+    path: "/",
+  },
+  {
+    title: "Resources",
+    path: "/resources",
+  },
+  {
+    title: "Pricing",
+    path: "/pricing",
+  },
+  {
+    title: "Contact",
+    path: "/contact",
+  },
+];
+
+const {dark =false} =  Astro.props;
 ---
 
-<astro:head>
-    <style>
-        .bg-scroll {
-            background-color: white;
-            /* Add any other styling you need for the scrolled state */
-        }
-    </style>
-</astro:head>
 
 <script>
     function handleScroll() {
         const navbar = document.querySelector("#primary-navbar");
+        const navLinks = document.getElementsByClassName('nav-link');
+
         if (window.scrollY > 0) {
             navbar?.classList.add("bg-white");
+            navbar?.classList.remove("text-white!");
+            
+            Array.from(navLinks).map((ele)=>{
+                ele.classList.remove("text-white","hover:text-gray-200")
+                ele.classList.add("text-gray-600","hover:text-gray-800")
+            })
         } else {
             navbar?.classList.remove("bg-white");
+    /*         Array.from(navLinks).map((ele)=>{
+                ele.classList.add("text-white","hover:text-gray-200")
+                ele.classList.remove("text-gray-600","hover:text-gray-800")
+            }) */
         }
     }
     window.onscroll = () => {
@@ -31,19 +60,14 @@ const links = ["Home", "Resources", "Pricing"];
 
 {/*bg-white */}
 
-<nav
-    id="primary-navbar"
-    class="h-20 w-full fixed top-0 flex justify-center z-50 transition-all"
->
-<div class="container-main w-full  flex  justify-start  items-center">
-
-    <Astronav>
-        <a href="/" class="mr-12"><Logo /></a>
+<nav id="primary-navbar" class:list={["h-20 w-full fixed top-0 flex justify-center z-50 transition-all",dark?'text-white!':'']}>
+<div class="container-main flex justify-start items-center">
+        <a href="/" class="mr-12"><Logo dark={dark}/></a>
         <div class="flex gap-8">
             {
-                links.map((link) => (
-                    <a href={`/${link.toLowerCase()}`} class="font-semibold hover:text-gray-800 transition-all text-base text-gray-600 cursor-pointer">
-                        {link}
+                navlinks.map((link) => (
+                    <a href={`${link.path}`} class:list={["font-semibold nav-link transition-all text-base  cursor-pointer",dark?"text-white hover:text-gray-200":'text-gray-600 hover:text-gray-800']}>
+                        {link.title}
                     </a>
                 ))
             }
@@ -52,6 +76,5 @@ const links = ["Home", "Resources", "Pricing"];
             <button class="button-secondary"> Log in</button>
             <button class="button-primary"> Sign up</button>
         </div>
-    </Astronav>
 </div>
 </nav>

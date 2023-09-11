@@ -1,3 +1,9 @@
+---
+type Props = {
+    dark?:boolean;
+}
+const {dark = false} = Astro.props;
+---
 <div>
-    <img class="w-[142px] h-[32px]" src="/logo.svg"/>
+    <img class="w-[142px] h-[32px]" src={dark?"/logo-white.svg":"/logo.svg"}/>
 </div>
