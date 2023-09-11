@@ -30,25 +30,35 @@ const {dark =false} =  Astro.props;
 ---
 
 
-<script>
+<script is:inline>
     function handleScroll() {
         const navbar = document.querySelector("#primary-navbar");
+        const dark = navbar?.getAttribute('data-theme')=='dark';
+        const logo = navbar?.getElementsByClassName('logo')[0];
         const navLinks = document.getElementsByClassName('nav-link');
 
         if (window.scrollY > 0) {
             navbar?.classList.add("bg-white");
             navbar?.classList.remove("text-white!");
-            
-            Array.from(navLinks).map((ele)=>{
-                ele.classList.remove("text-white","hover:text-gray-200")
-                ele.classList.add("text-gray-600","hover:text-gray-800")
-            })
+            if(dark){
+                Array.from(navLinks).map((ele)=>{
+                    ele.classList.remove("text-white","hover:text-gray-200")
+                    ele.classList.add("text-gray-600","hover:text-gray-800")
+                })
+                if(logo)
+                logo.setAttribute('src','/logo.svg');
+            }
         } else {
             navbar?.classList.remove("bg-white");
-    /*         Array.from(navLinks).map((ele)=>{
+            if(dark){
+
+            Array.from(navLinks).map((ele)=>{
                 ele.classList.add("text-white","hover:text-gray-200")
                 ele.classList.remove("text-gray-600","hover:text-gray-800")
-            }) */
+            })
+            if(logo)
+            logo.setAttribute('src','/logo-white.svg');
+        }
         }
     }
     window.onscroll = () => {
@@ -60,7 +70,7 @@ const {dark =false} =  Astro.props;
 
 {/*bg-white */}
 
-<nav id="primary-navbar" class:list={["h-20 w-full fixed top-0 flex justify-center z-50 transition-all",dark?'text-white!':'']}>
+<nav id="primary-navbar" data-theme={dark?'dark':'light'} class:list={["h-20 w-full fixed top-0 flex justify-center z-50 transition-all",dark?'text-white!':'']}>
 <div class="container-main flex justify-start items-center">
         <a href="/" class="mr-12"><Logo dark={dark}/></a>
         <div class="flex gap-8">
