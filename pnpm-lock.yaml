@@ -20,15 +20,15 @@ dependencies:
   astro-navbar:
     specifier: ^2.0.1
     version: 2.0.1
+  astro-seo:
+    specifier: ^0.8.0
+    version: 0.8.0
   class-variance-authority:
     specifier: ^0.7.0
     version: 0.7.0
   clsx:
     specifier: ^2.0.0
     version: 2.0.0
-  conding-monk-website:
-    specifier: 'link:'
-    version: 'link:'
   phosphor-astro:
     specifier: ^0.1.0
     version: 0.1.0
@@ -1010,6 +1010,10 @@ packages:
 
   /astro-navbar@2.0.1:
     resolution: {integrity: sha512-pnnsYJEmXfrmwNSHuvPk5oXvzePON4g3UGY7I0Un6ZL34Ua6pve+nFOqoKwmRXqZl3UV22+awsP3uk5l2AQTNA==}
+    dev: false
+
+  /astro-seo@0.8.0:
+    resolution: {integrity: sha512-7gq6lhibCM8FuzZIJlbLLWP5EJ9KL2/4XqeFrAg9O6ZK2xMFxJ5ubKf+a0VJwwTu8W8Xr421CmpiXu6Hq7n/7Q==}
     dev: false
 
   /astro@3.0.12:
