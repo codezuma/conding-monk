@@ -37,7 +37,7 @@ export const articles = [
             </a>
         </div>
     </header>
-    <main class="flex w-2/3 gap-8 flex-row">
+    <main class="flex md:w-2/3 w-full gap-8 md:flex-row flex-col">
         {articles.map((article) => <BlogCard {...article} />)}
     </main>
     <div class="md:hidden block w-full mt-12">

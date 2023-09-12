@@ -65,7 +65,7 @@ const {dark =false} =  Astro.props;
             
             {
                 navlinks.map((link) => (
-                    <a href={`${link.path}`} class:list={["font-semibold  nav-link transition-all text-xl  cursor-pointer",dark?"text-white hover:text-gray-200":'text-gray-600 hover:text-gray-800']}>
+                    <a href={`${link.path}`} class:list={["font-semibold  transition-all text-xl  cursor-pointer"]}>
                     {link.title}
                     </a>
                     ))

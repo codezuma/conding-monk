@@ -1,11 +1,13 @@
 ---
 import Logo from "../../ui/logo.astro";
+type Props = {
+    className?:string;
+}
 const links = ["Terms", "Privacy", "Cookies"];
-
+const {className} = Astro.props;
 ---
 
-<footer class="pt-52 bg-gray-900 pb-12 relative w-full">
-   
+<footer class:list={["bg-gray-900 pt-20 pb-12 relative w-full",className]}>
     <main class="flex gap-12  container-main flex-wrap">
         <div class="flex flex-1 min-w-[300px] flex-col  gap-6">
             <Logo />
